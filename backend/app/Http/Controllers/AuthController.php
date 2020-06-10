@@ -18,6 +18,19 @@ class AuthController extends Controller
     }
 
     public function register(Request $request){
+        
+         public function register(Request $request)
+    {
+        try {
+            $obj = $request->all();
+            $obj['password'] = bcrypt($request->input('password'));
+            $user = User::create($obj);
+            return response()->json(['msg' => 'ok!', 'user' => $user]);
+        } catch (QueryException $e) {
+            return response()->json(['msg' => 'failed!']);
+        }
+    }
+
 
     }
 
