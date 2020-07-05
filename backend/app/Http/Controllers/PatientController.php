@@ -7,7 +7,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Catch_;
 
-class PatientController extends Controller
+//class PatientController extends Controller
 {
     //
 
