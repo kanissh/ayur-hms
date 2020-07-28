@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-patient-reg',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientRegComponent implements OnInit {
 
-  constructor() { }
+  hospitalsCd: String[] = ['Anuradhapura', 'Polonnaruwa'];
 
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder) { }
+
+  ngOnInit() {
+  
   }
 
 }

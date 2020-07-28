@@ -1,143 +1,107 @@
-<mat-toolbar color = "Primary">
-    <mat-toolbar-row>
-      <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-      </button>
-  
-      <p class="mainHeading"> Patient Registration</p>
-  
-      <span class="flexExpand"></span>
-      <button mat-raised-button color="primary"> Add new Patient</button>
-      <span class="gap"></span>
-      <button mat-raised-button color="primary"> New Addmission</button>
-      <span class="gap"></span>
-      <button mat-icon-button><mat-icon>person</mat-icon></button>
-    
-    </mat-toolbar-row>
-  </mat-toolbar>
-  
-  <div class="container">
-    <form action="">
-      <div class="row">
-        <div class="col-25">
-          <label for="location">Location</label>
-        </div>
-        <div class="col-75">
-          <mat-radio-group aria-label="Select Gender">
-            <mat-radio-button value="1">Hospital</mat-radio-button>
-            <span class="gap"></span>
-        
-            <mat-radio-button value="2">CD</mat-radio-button>
-            <span class="gap"></span>
-          </mat-radio-group>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-25">
-          <label for="pname">Patient's name</label>
-        </div>
-        <div class="col-75">
-          <mat-form-field appearance="outline">
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>
-  
-      <div class="row">
-        <div class="col-25">
-          <label for="nic">National ID No</label>
-        </div>
-        <div class="col-75">
-          <mat-form-field appearance="outline">
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>
-  
-      <div class="row">
-        <div class="col-25">
-          <label for="age">Age</label>
-        </div>
-        <div class="col-75">
-          <mat-form-field appearance="outline">
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>  
-  
-      <div class="row">
-        <div class="col-25">
-          <label for="gender">Gender</label>
-        </div>
-        <div class="col-75">
-          <mat-radio-group aria-label="Select Gender">
-            <mat-radio-button value="1">Male</mat-radio-button>
-            <span class="gap"></span>
-        
-            <mat-radio-button value="2">Female</mat-radio-button>
-            <span class="gap"></span>
-        
-            <mat-radio-button value="3">Other</mat-radio-button>
-            <span class="gap"></span>
-          </mat-radio-group>  
-        </div>
-      </div>
-  
-      <div class="row">
-        <div class="col-25">
-          <label for="address">Address</label>
-        </div>
-        <div class="col-75">
-          <mat-form-field appearance="outline" placeholder="Enter address...">
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>
-  
-      <div class="row">
-        <div class="col-25">
-          <label for="phone-no">Phone No</label>
-        </div>
-        <div class="col-75">
-          <mat-form-field appearance="outline" placeholder="Enter phone number...">
-            <input matInput type="tel" id="phone-no">
-          </mat-form-field>
-        </div>
-      </div>
-  
-      <div class="row">
-        <div class="col-25">
-          <label for="occupation">Occupation</label>
-        </div>
-        <div class="col-75">
-          <mat-form-field appearance="outline">
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>
-  
-      <div class="row">
-        <div class="col-25">
-          <label for="other-notes">Other notes</label>
-        </div>
-      </div>
-  
-      <div>
-        <textarea id="other-notes" name="other-notes" placeholder="Other notes..." style="height:200px"></textarea>
-      </div>
-  
-      <div class="row">
-      <br/>
-      <button mat-raised-button color="primary">Save Details</button>
-      <span class="button-gap"></span>
-    
-      <button mat-raised-button color="warn"> Cancel</button>
-      <span class="button-gap"></span>
-    
-      <button mat-raised-button color="basic">Admit to Ward</button>
-      <span class="button-gap"></span>
-      </div>
-      
-    </form>
-  </div> 
+<mat-toolbar>
+  <button id="menu-btn" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="toolbar-title">Patient Registration</span>
+
+
+
+  <span class="right-btn">
+    <button id="new-patient-btn" mat-raised-button color="primary">Add New Patient</button>
+    <button id="new-admission-btn" mat-raised-button color="primary">New Admission</button>
+    <button id="avatar-btn" mat-mini-fab color="primary">
+      <mat-icon>person</mat-icon>
+    </button>
+  </span>
+</mat-toolbar>
+
+<div class="form">
+
+  <span class="input-element">
+  <label for="hospitals-cd">Hospital/CD Location</label>
+  <mat-form-field appearance="outline">
+    <mat-label>Hospital or CD</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let hosCd of hospitalsCd" [value]="hospitalsCd">
+        {{ hosCd }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</span>
+
+  <span class="input-element">
+    <label for="patient-name">Patient's Name</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </span>
+
+  <span class="input-element">
+    <label for="nic">National ID card No.</label>
+    <mat-form-field appearance="outline">
+      <mat-label>National ID card No.</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </span>
+
+  <span class="input-element">
+    <label for="age">Age</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Age</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </span>
+
+  <span id="gender-ele-id" class="input-element">
+    <label for="gender">Gender</label>
+    <mat-radio-group color="primary">
+      <mat-radio-button value="male">Male</mat-radio-button>
+      <mat-radio-button value="female">Female</mat-radio-button>
+      <mat-radio-button value="other">Other</mat-radio-button>
+    </mat-radio-group>
+  </span>
+
+  <span class="input-element">
+    <label for="address">Address</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </span>
+
+  <span class="input-element">
+    <label for="phone-number">Contact Number</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Phone number</mat-label>
+      <input matInput>
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+
+  </span>
+
+  <span class="input-element">
+    <label for="occupation">Occupation</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Occupation</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </span>
+
+  <span class="input-element">
+    <label for="other-notes">Other notes</label>
+  <mat-form-field id="other-notes" appearance="outline">
+    <mat-label>Other Notes</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+</span>
+
+  <span class="bottom-btn">
+    <button id="save-details-btn" mat-raised-button color="primary">Save Details</button>
+    <button id="cancel-btn" mat-raised-button color="warn">Cancel</button>
+    <button id="admit-to-ward-btn" mat-raised-button color="primary">Admit to Ward</button>
+  </span>
+
+
+</div>
