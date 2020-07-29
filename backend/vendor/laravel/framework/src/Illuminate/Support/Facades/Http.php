@@ -5,12 +5,15 @@ namespace Illuminate\Support\Facades;
 use Illuminate\Http\Client\Factory;
 
 /**
+ * @method static \GuzzleHttp\Promise\PromiseInterface response($body = null, $status = 200, $headers = [])
+ * @method static \Illuminate\Http\Client\Factory fake($callback = null)
  * @method static \Illuminate\Http\Client\PendingRequest accept(string $contentType)
  * @method static \Illuminate\Http\Client\PendingRequest acceptJson()
  * @method static \Illuminate\Http\Client\PendingRequest asForm()
  * @method static \Illuminate\Http\Client\PendingRequest asJson()
  * @method static \Illuminate\Http\Client\PendingRequest asMultipart()
  * @method static \Illuminate\Http\Client\PendingRequest attach(string $name, string $contents, string|null $filename = null, array $headers = [])
+ * @method static \Illuminate\Http\Client\PendingRequest baseUrl(string $url)
  * @method static \Illuminate\Http\Client\PendingRequest beforeSending(callable $callback)
  * @method static \Illuminate\Http\Client\PendingRequest bodyFormat(string $format)
  * @method static \Illuminate\Http\Client\PendingRequest contentType(string $contentType)

@@ -1073,7 +1073,7 @@ class Collection implements ArrayAccess, Enumerable
     /**
      * Sort through each item with a callback.
      *
-     * @param  callable|null  $callback
+     * @param  callable|int|null  $callback
      * @return static
      */
     public function sort($callback = null)
@@ -1210,7 +1210,7 @@ class Collection implements ArrayAccess, Enumerable
     /**
      * Take items in the collection until the given condition is met.
      *
-     * @param  mixed  $key
+     * @param  mixed  $value
      * @return static
      */
     public function takeUntil($value)
@@ -1221,7 +1221,7 @@ class Collection implements ArrayAccess, Enumerable
     /**
      * Take items in the collection while the given condition is met.
      *
-     * @param  mixed  $key
+     * @param  mixed  $value
      * @return static
      */
     public function takeWhile($value)

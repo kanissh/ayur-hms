@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('login','AuthController@login');
-Route::post('register','AuthController@register');
-Route::post('patient/register','PatientController@register');
-//Route::get('logout','AuthController@logout');
-
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+
+Route::post("login","UserAPIController@login");
+
+
+
+Route::resource('v1/users', 'UserAPIController');
