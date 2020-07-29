@@ -547,7 +547,8 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
     public const TRANSLATE_DAYS = 2;
     public const TRANSLATE_UNITS = 4;
     public const TRANSLATE_MERIDIEM = 8;
-    public const TRANSLATE_ALL = self::TRANSLATE_MONTHS | self::TRANSLATE_DAYS | self::TRANSLATE_UNITS | self::TRANSLATE_MERIDIEM;
+    public const TRANSLATE_DIFF = 0x10;
+    public const TRANSLATE_ALL = self::TRANSLATE_MONTHS | self::TRANSLATE_DAYS | self::TRANSLATE_UNITS | self::TRANSLATE_MERIDIEM | self::TRANSLATE_DIFF;
 
     /**
      * The day constants.
@@ -559,6 +560,24 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
     public const THURSDAY = 4;
     public const FRIDAY = 5;
     public const SATURDAY = 6;
+
+    /**
+     * The month constants.
+     * These aren't used by Carbon itself but exist for
+     * convenience sake alone.
+     */
+    public const JANUARY = 1;
+    public const FEBRUARY = 2;
+    public const MARCH = 3;
+    public const APRIL = 4;
+    public const MAY = 5;
+    public const JUNE = 6;
+    public const JULY = 7;
+    public const AUGUST = 8;
+    public const SEPTEMBER = 9;
+    public const OCTOBER = 10;
+    public const NOVEMBER = 11;
+    public const DECEMBER = 12;
 
     /**
      * Number of X in Y.
@@ -578,6 +597,11 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
     public const MILLISECONDS_PER_SECOND = 1000;
     public const MICROSECONDS_PER_MILLISECOND = 1000;
     public const MICROSECONDS_PER_SECOND = 1000000;
+
+    /**
+     * Special settings to get the start of week from current locale culture.
+     */
+    public const WEEK_DAY_AUTO = 'auto';
 
     /**
      * RFC7231 DateTime format.
@@ -725,9 +749,9 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      * @example $date->add(15, 'days')
      * @example $date->add(CarbonInterval::days(4))
      *
-     * @param string|DateInterval $unit
-     * @param int                 $value
-     * @param bool|null           $overflow
+     * @param string|DateInterval|Closure|CarbonConverterInterface $unit
+     * @param int                                                  $value
+     * @param bool|null                                            $overflow
      *
      * @return static
      */
@@ -993,7 +1017,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @throws InvalidFormatException
      *
-     * @return static
+     * @return static|false
      */
     public static function create($year = 0, $month = 1, $day = 1, $hour = 0, $minute = 0, $second = 0, $tz = null);
 
@@ -2953,7 +2977,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      * Get/set the locale for the current instance.
      *
      * @param string|null $locale
-     * @param string[]    ...$fallbackLocales
+     * @param string      ...$fallbackLocales
      *
      * @return $this|string
      */
@@ -3323,8 +3347,8 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      * as it allows you to do Carbon::parse('Monday next week')->fn() rather
      * than (new Carbon('Monday next week'))->fn().
      *
-     * @param string|null              $time
-     * @param DateTimeZone|string|null $tz
+     * @param string|DateTimeInterface|null $time
+     * @param DateTimeZone|string|null      $tz
      *
      * @throws InvalidFormatException
      *
@@ -3335,15 +3359,16 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
     /**
      * Create a carbon instance from a localized string (in French, Japanese, Arabic, etc.).
      *
-     * @param string                   $time
-     * @param string                   $locale
-     * @param DateTimeZone|string|null $tz
+     * @param string                   $time   date/time string in the given language (may also contain English).
+     * @param string|null              $locale if locale is null or not specified, current global locale will be
+     *                                         used instead.
+     * @param DateTimeZone|string|null $tz     optional timezone for the new instance.
      *
      * @throws InvalidFormatException
      *
      * @return static
      */
-    public static function parseFromLocale($time, $locale, $tz = null);
+    public static function parseFromLocale($time, $locale = null, $tz = null);
 
     /**
      * Returns standardized plural of a given singular/plural unit name (in English).
@@ -3392,6 +3417,15 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
     public function range($end = null, $interval = null, $unit = null);
 
     /**
+     * Call native PHP DateTime/DateTimeImmutable add() method.
+     *
+     * @param DateInterval $interval
+     *
+     * @return static
+     */
+    public function rawAdd(DateInterval $interval);
+
+    /**
      * Create a Carbon instance from a specific format.
      *
      * @param string                         $format Datetime format
@@ -3420,14 +3454,23 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      * as it allows you to do Carbon::parse('Monday next week')->fn() rather
      * than (new Carbon('Monday next week'))->fn().
      *
-     * @param string|null              $time
-     * @param DateTimeZone|string|null $tz
+     * @param string|DateTimeInterface|null $time
+     * @param DateTimeZone|string|null      $tz
      *
      * @throws InvalidFormatException
      *
      * @return static
      */
     public static function rawParse($time = null, $tz = null);
+
+    /**
+     * Call native PHP DateTime/DateTimeImmutable sub() method.
+     *
+     * @param DateInterval $interval
+     *
+     * @return static
+     */
+    public function rawSub(DateInterval $interval);
 
     /**
      * Remove all macros and generic macros.
@@ -3671,7 +3714,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * /!\ Use this method for unit tests only.
      *
-     * @param Closure|static|string|null $testNow real or mock Carbon instance
+     * @param Closure|static|string|false|null $testNow real or mock Carbon instance
      */
     public static function setTestNow($testNow = null);
 
@@ -3789,7 +3832,8 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * Set the last day of week
      *
-     * @param int $day
+     * @param int|string $day week end day (or 'auto' to get the day before the first day of week
+     *                        from Carbon::getLocale() culture).
      *
      * @return void
      */
@@ -3803,7 +3847,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * Set the first day of week
      *
-     * @param int $day week start day
+     * @param int|string $day week start day (or 'auto' to get the first day of week from Carbon::getLocale() culture).
      *
      * @return void
      */
@@ -4059,9 +4103,9 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      * @example $date->sub(15, 'days')
      * @example $date->sub(CarbonInterval::days(4))
      *
-     * @param string|DateInterval $unit
-     * @param int                 $value
-     * @param bool|null           $overflow
+     * @param string|DateInterval|Closure|CarbonConverterInterface $unit
+     * @param int                                                  $value
+     * @param bool|null                                            $overflow
      *
      * @return static
      */
@@ -4617,11 +4661,11 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
     /**
      * Translate a time string from a locale to an other.
      *
-     * @param string      $timeString time string to translate
+     * @param string      $timeString date/time/duration string to translate (may also contain English)
      * @param string|null $from       input locale of the $timeString parameter (`Carbon::getLocale()` by default)
      * @param string|null $to         output locale of the result returned (`"en"` by default)
      * @param int         $mode       specify what to translate with options:
-     *                                - CarbonInterface::TRANSLATE_ALL (default)
+     *                                - self::TRANSLATE_ALL (default)
      *                                - CarbonInterface::TRANSLATE_MONTHS
      *                                - CarbonInterface::TRANSLATE_DAYS
      *                                - CarbonInterface::TRANSLATE_UNITS
@@ -4630,7 +4674,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return string
      */
-    public static function translateTimeString($timeString, $from = null, $to = null, $mode = 15);
+    public static function translateTimeString($timeString, $from = null, $to = null, $mode = self::TRANSLATE_ALL);
 
     /**
      * Translate a time string from the current locale (`$date->locale()`) to an other.
