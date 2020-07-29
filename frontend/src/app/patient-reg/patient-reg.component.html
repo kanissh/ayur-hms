@@ -1,107 +1,93 @@
-<mat-toolbar>
-  <button id="menu-btn" mat-icon-button>
-    <mat-icon>menu</mat-icon>
-  </button>
+<app-sidenav-bar page-title="{{ page.name }}">
 
-  <span class="toolbar-title">Patient Registration</span>
+  <div class="form">
 
+    <span class="input-element">
+      <label for="hospitals-cd">Hospital/CD Location</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Hospital or CD</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let hosCd of hospitalsCd" [value]="hospitalsCd">
+            {{ hosCd }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </span>
 
+    <span class="input-element">
+      <label for="patient-name">Patient's Name</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </span>
 
-  <span class="right-btn">
-    <button id="new-patient-btn" mat-raised-button color="primary">Add New Patient</button>
-    <button id="new-admission-btn" mat-raised-button color="primary">New Admission</button>
-    <button id="avatar-btn" mat-mini-fab color="primary">
-      <mat-icon>person</mat-icon>
-    </button>
-  </span>
-</mat-toolbar>
+    <span class="input-element">
+      <label for="nic">National ID card No.</label>
+      <mat-form-field appearance="outline">
+        <mat-label>National ID card No.</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </span>
 
-<div class="form">
+    <span class="input-element">
+      <label for="age">Age</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </span>
 
-  <span class="input-element">
-  <label for="hospitals-cd">Hospital/CD Location</label>
-  <mat-form-field appearance="outline">
-    <mat-label>Hospital or CD</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let hosCd of hospitalsCd" [value]="hospitalsCd">
-        {{ hosCd }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</span>
+    <span id="gender-ele-id" class="input-element">
+      <label for="gender">Gender</label>
+      <mat-radio-group color="primary">
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+        <mat-radio-button value="other">Other</mat-radio-button>
+      </mat-radio-group>
+    </span>
 
-  <span class="input-element">
-    <label for="patient-name">Patient's Name</label>
-    <mat-form-field appearance="outline">
-      <mat-label>Name</mat-label>
-      <input matInput>
-    </mat-form-field>
-  </span>
+    <span class="input-element">
+      <label for="address">Address</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </span>
 
-  <span class="input-element">
-    <label for="nic">National ID card No.</label>
-    <mat-form-field appearance="outline">
-      <mat-label>National ID card No.</mat-label>
-      <input matInput>
-    </mat-form-field>
-  </span>
+    <span class="input-element">
+      <label for="phone-number">Contact Number</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone number</mat-label>
+        <input matInput>
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
 
-  <span class="input-element">
-    <label for="age">Age</label>
-    <mat-form-field appearance="outline">
-      <mat-label>Age</mat-label>
-      <input matInput>
-    </mat-form-field>
-  </span>
+    </span>
 
-  <span id="gender-ele-id" class="input-element">
-    <label for="gender">Gender</label>
-    <mat-radio-group color="primary">
-      <mat-radio-button value="male">Male</mat-radio-button>
-      <mat-radio-button value="female">Female</mat-radio-button>
-      <mat-radio-button value="other">Other</mat-radio-button>
-    </mat-radio-group>
-  </span>
+    <span class="input-element">
+      <label for="occupation">Occupation</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Occupation</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </span>
 
-  <span class="input-element">
-    <label for="address">Address</label>
-    <mat-form-field appearance="outline">
-      <mat-label>Address</mat-label>
-      <input matInput>
-    </mat-form-field>
-  </span>
+    <span class="input-element">
+      <label for="other-notes">Other notes</label>
+      <mat-form-field id="other-notes" appearance="outline">
+        <mat-label>Other Notes</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </span>
 
-  <span class="input-element">
-    <label for="phone-number">Contact Number</label>
-    <mat-form-field appearance="outline">
-      <mat-label>Phone number</mat-label>
-      <input matInput>
-      <mat-icon matSuffix>phone</mat-icon>
-    </mat-form-field>
-
-  </span>
-
-  <span class="input-element">
-    <label for="occupation">Occupation</label>
-    <mat-form-field appearance="outline">
-      <mat-label>Occupation</mat-label>
-      <input matInput>
-    </mat-form-field>
-  </span>
-
-  <span class="input-element">
-    <label for="other-notes">Other notes</label>
-  <mat-form-field id="other-notes" appearance="outline">
-    <mat-label>Other Notes</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
-</span>
-
-  <span class="bottom-btn">
-    <button id="save-details-btn" mat-raised-button color="primary">Save Details</button>
-    <button id="cancel-btn" mat-raised-button color="warn">Cancel</button>
-    <button id="admit-to-ward-btn" mat-raised-button color="primary">Admit to Ward</button>
-  </span>
+    <span class="bottom-btn">
+      <button id="save-details-btn" mat-raised-button color="primary">Save Details</button>
+      <button id="cancel-btn" mat-raised-button color="warn">Cancel</button>
+      <button id="admit-to-ward-btn" mat-raised-button color="primary">Admit to Ward</button>
+    </span>
 
 
-</div>
+  </div>
+
+</app-sidenav-bar>

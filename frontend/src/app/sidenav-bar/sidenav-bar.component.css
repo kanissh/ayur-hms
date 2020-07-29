@@ -1,0 +1,22 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+ 
+mat-sidenav {
+    width: 250px;
+}
+ 
+main {
+    padding: 10px;
+}
+
+#new-patient-btn, #new-admission-btn, #menu-btn {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  @media screen and (max-width: 600px){
+    #new-patient-btn, #new-admission-btn {
+        display: none;
+    }   
+  }

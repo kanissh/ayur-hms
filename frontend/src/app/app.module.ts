@@ -10,7 +10,8 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { PatientRegComponent } from './patient-reg/patient-reg.component';
-import { MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule, MatSidenavModule } from '@angular/material';
+import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
 // import { ViewRecordsComponent } from './view-records/view-records.component';
 // import { HomePageComponent } from './home-page/home-page.component';
 // import { LoginPageComponent } from './login-page/login-page.component';
@@ -19,6 +20,7 @@ import { MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule } f
   declarations: [
     AppComponent,
     PatientRegComponent,
+    SidenavBarComponent,
     // ViewRecordsComponent,
     // HomePageComponent,
     // LoginPageComponent
@@ -35,7 +37,9 @@ import { MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule } f
     MatIconModule,
     MatInputModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSidenavModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
