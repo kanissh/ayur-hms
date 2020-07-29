@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class UserRepository
  * @package App\Repositories
- * @version July 29, 2020, 8:30 am UTC
+ * @version July 29, 2020, 11:18 am UTC
 */
 
 class UserRepository extends BaseRepository
@@ -43,5 +43,4 @@ class UserRepository extends BaseRepository
     {
         return User::class;
     }
-
 }

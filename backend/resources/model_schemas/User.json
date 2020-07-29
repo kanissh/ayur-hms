@@ -1,0 +1,142 @@
+[
+    {
+        "name": "id",
+        "dbType": "string,36",
+        "htmlType": "text",
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+    {
+        "name": "name",
+        "dbType": "string,191",
+        "htmlType": "text",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "mobile_number",
+        "dbType": "string,191",
+        "htmlType": "text",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "user_name",
+        "dbType": "string,191",
+        "htmlType": "text",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "password",
+        "dbType": "string,191",
+        "htmlType": "text",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "address",
+        "dbType": "string,191",
+        "htmlType": "text",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "role_id",
+        "dbType": "bigInteger,false,true",
+        "htmlType": null,
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "status_id",
+        "dbType": "bigInteger,false,true",
+        "htmlType": null,
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "datetime:nullable",
+        "htmlType": "date",
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "datetime:nullable",
+        "htmlType": "date",
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Role,role_id"
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Status,status_id"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Admission,user_id"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Patient,user_id"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Record,user_id"
+    }
+]
