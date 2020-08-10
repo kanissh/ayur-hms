@@ -2,28 +2,27 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Requests\API\CreatePatientsAPIRequest;
-use App\Http\Requests\API\UpdatePatientsAPIRequest;
-use App\Models\Patients;
-use App\Repositories\PatientsRepository;
+use App\Http\Requests\API\CreateHospitalAPIRequest;
+use App\Http\Requests\API\UpdateHospitalAPIRequest;
+use App\Models\Hospital;
+use App\Repositories\HospitalRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
-use Illuminate\Support\Facades\Auth;
 use Response;
 
 /**
- * Class PatientsController
+ * Class HospitalController
  * @package App\Http\Controllers\API
  */
 
-class PatientsAPIController extends AppBaseController
+class HospitalAPIController extends AppBaseController
 {
-    /** @var  PatientsRepository */
-    private $patientsRepository;
+    /** @var  HospitalRepository */
+    private $hospitalRepository;
 
-    public function __construct(PatientsRepository $patientsRepo)
+    public function __construct(HospitalRepository $hospitalRepo)
     {
-        $this->patientsRepository = $patientsRepo;
+        $this->hospitalRepository = $hospitalRepo;
     }
 
     /**
@@ -31,10 +30,10 @@ class PatientsAPIController extends AppBaseController
      * @return Response
      *
      * @SWG\Get(
-     *      path="/patients",
-     *      summary="Get a listing of the Patients.",
-     *      tags={"Patients"},
-     *      description="Get all Patients",
+     *      path="/hospitals",
+     *      summary="Get a listing of the Hospitals.",
+     *      tags={"Hospital"},
+     *      description="Get all Hospitals",
      *      produces={"application/json"},
      *      @SWG\Response(
      *          response=200,
@@ -48,7 +47,7 @@ class PatientsAPIController extends AppBaseController
      *              @SWG\Property(
      *                  property="data",
      *                  type="array",
-     *                  @SWG\Items(ref="#/definitions/Patients")
+     *                  @SWG\Items(ref="#/definitions/Hospital")
      *              ),
      *              @SWG\Property(
      *                  property="message",
@@ -60,31 +59,25 @@ class PatientsAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $patients = $this->patientsRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
 
-        return $this->sendResponse($patients->toArray(), 'Patients retrieved successfully');
     }
 
     /**
-     * @param CreatePatientsAPIRequest $request
+     * @param CreateHospitalAPIRequest $request
      * @return Response
      *
      * @SWG\Post(
-     *      path="/patients",
-     *      summary="Store a newly created Patients in storage",
-     *      tags={"Patients"},
-     *      description="Store Patients",
+     *      path="/hospitals",
+     *      summary="Store a newly created Hospital in storage",
+     *      tags={"Hospital"},
+     *      description="Store Hospital",
      *      produces={"application/json"},
      *      @SWG\Parameter(
      *          name="body",
      *          in="body",
-     *          description="Patients that should be stored",
+     *          description="Hospital that should be stored",
      *          required=false,
-     *          @SWG\Schema(ref="#/definitions/Patients")
+     *          @SWG\Schema(ref="#/definitions/Hospital")
      *      ),
      *      @SWG\Response(
      *          response=200,
@@ -97,7 +90,7 @@ class PatientsAPIController extends AppBaseController
      *              ),
      *              @SWG\Property(
      *                  property="data",
-     *                  ref="#/definitions/Patients"
+     *                  ref="#/definitions/Hospital"
      *              ),
      *              @SWG\Property(
      *                  property="message",
@@ -107,14 +100,9 @@ class PatientsAPIController extends AppBaseController
      *      )
      * )
      */
-    public function store(CreatePatientsAPIRequest $request)
+    public function store(CreateHospitalAPIRequest $request)
     {
-        $input = $request->all();
 
-
-        $patients = $this->patientsRepository->create($input);
-
-        return $this->sendResponse($patients->toArray(), 'Patients saved successfully');
     }
 
     /**
@@ -122,14 +110,14 @@ class PatientsAPIController extends AppBaseController
      * @return Response
      *
      * @SWG\Get(
-     *      path="/patients/{id}",
-     *      summary="Display the specified Patients",
-     *      tags={"Patients"},
-     *      description="Get Patients",
+     *      path="/hospitals/{id}",
+     *      summary="Display the specified Hospital",
+     *      tags={"Hospital"},
+     *      description="Get Hospital",
      *      produces={"application/json"},
      *      @SWG\Parameter(
      *          name="id",
-     *          description="id of Patients",
+     *          description="id of Hospital",
      *          type="integer",
      *          required=true,
      *          in="path"
@@ -145,7 +133,7 @@ class PatientsAPIController extends AppBaseController
      *              ),
      *              @SWG\Property(
      *                  property="data",
-     *                  ref="#/definitions/Patients"
+     *                  ref="#/definitions/Hospital"
      *              ),
      *              @SWG\Property(
      *                  property="message",
@@ -157,30 +145,23 @@ class PatientsAPIController extends AppBaseController
      */
     public function show($id)
     {
-        /** @var Patients $patients */
-        $patients = $this->patientsRepository->find($id);
 
-        if (empty($patients)) {
-            return $this->sendError('Patients not found');
-        }
-
-        return $this->sendResponse($patients->toArray(), 'Patients retrieved successfully');
     }
 
     /**
      * @param int $id
-     * @param UpdatePatientsAPIRequest $request
+     * @param UpdateHospitalAPIRequest $request
      * @return Response
      *
      * @SWG\Put(
-     *      path="/patients/{id}",
-     *      summary="Update the specified Patients in storage",
-     *      tags={"Patients"},
-     *      description="Update Patients",
+     *      path="/hospitals/{id}",
+     *      summary="Update the specified Hospital in storage",
+     *      tags={"Hospital"},
+     *      description="Update Hospital",
      *      produces={"application/json"},
      *      @SWG\Parameter(
      *          name="id",
-     *          description="id of Patients",
+     *          description="id of Hospital",
      *          type="integer",
      *          required=true,
      *          in="path"
@@ -188,9 +169,9 @@ class PatientsAPIController extends AppBaseController
      *      @SWG\Parameter(
      *          name="body",
      *          in="body",
-     *          description="Patients that should be updated",
+     *          description="Hospital that should be updated",
      *          required=false,
-     *          @SWG\Schema(ref="#/definitions/Patients")
+     *          @SWG\Schema(ref="#/definitions/Hospital")
      *      ),
      *      @SWG\Response(
      *          response=200,
@@ -203,7 +184,7 @@ class PatientsAPIController extends AppBaseController
      *              ),
      *              @SWG\Property(
      *                  property="data",
-     *                  ref="#/definitions/Patients"
+     *                  ref="#/definitions/Hospital"
      *              ),
      *              @SWG\Property(
      *                  property="message",
@@ -213,9 +194,20 @@ class PatientsAPIController extends AppBaseController
      *      )
      * )
      */
-    public function update($id, UpdatePatientsAPIRequest $request)
+    public function update($id, UpdateHospitalAPIRequest $request)
     {
+        $input = $request->all();
 
+        /** @var Hospital $hospital */
+        $hospital = $this->hospitalRepository->find($id);
+
+        if (empty($hospital)) {
+            return $this->sendError('Hospital not found');
+        }
+
+        $hospital = $this->hospitalRepository->update($input, $id);
+
+        return $this->sendResponse($hospital->toArray(), 'Hospital updated successfully');
     }
 
     /**
@@ -223,14 +215,14 @@ class PatientsAPIController extends AppBaseController
      * @return Response
      *
      * @SWG\Delete(
-     *      path="/patients/{id}",
-     *      summary="Remove the specified Patients from storage",
-     *      tags={"Patients"},
-     *      description="Delete Patients",
+     *      path="/hospitals/{id}",
+     *      summary="Remove the specified Hospital from storage",
+     *      tags={"Hospital"},
+     *      description="Delete Hospital",
      *      produces={"application/json"},
      *      @SWG\Parameter(
      *          name="id",
-     *          description="id of Patients",
+     *          description="id of Hospital",
      *          type="integer",
      *          required=true,
      *          in="path"
@@ -258,9 +250,15 @@ class PatientsAPIController extends AppBaseController
      */
     public function destroy($id)
     {
+        /** @var Hospital $hospital */
+        $hospital = $this->hospitalRepository->find($id);
 
+        if (empty($hospital)) {
+            return $this->sendError('Hospital not found');
+        }
+
+        $hospital->delete();
+
+        return $this->sendSuccess('Hospital deleted successfully');
     }
-
-
-
 }

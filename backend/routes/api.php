@@ -29,3 +29,6 @@ Route::resource('v1/users', 'UserAPIController');
 
 
 Route::resource('v1/patients', 'PatientsAPIController');
+
+
+Route::resource('v1/hospitals', 'HospitalAPIController');
