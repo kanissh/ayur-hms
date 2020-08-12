@@ -1,7 +1,3 @@
-#new-patient-btn, #new-admission-btn, #menu-btn {
-  margin-right: 10px;
-  vertical-align: middle;
-}
 
 .right-btn {
   float: right;
@@ -71,12 +67,6 @@
   margin-bottom: 20px;
 }
 
-
-@media screen and (max-width: 600px){
-  #new-patient-btn, #new-admission-btn {
-      display: none;
-  }   
-}
 
 @media screen and (max-width: 500px){
   .input-element {

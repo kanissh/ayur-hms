@@ -1,0 +1,25 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over"></mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button id="menu-btn" mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+
+            <span class="toolbar-title">{{ pageTitle }}</span>
+
+            <span class="right-btn">
+               
+                <button id="new-patient-btn" mat-raised-button color="primary">Add New Patient</button>
+                <button id="new-admission-btn" mat-raised-button color="primary">New Admission</button>
+                <button id="avatar-btn" mat-mini-fab color="primary">
+                    <mat-icon>person</mat-icon>
+                </button>
+            </span>
+        </mat-toolbar>
+
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
