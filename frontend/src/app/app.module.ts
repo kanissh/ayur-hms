@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PatientRegComponent } from './patient-reg/patient-reg.component';
 import { MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule, MatSidenavModule } from '@angular/material';
 import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
+import { PatientAddmissionComponent } from './patient-addmission/patient-addmission.component';
 // import { ViewRecordsComponent } from './view-records/view-records.component';
 // import { HomePageComponent } from './home-page/home-page.component';
 // import { LoginPageComponent } from './login-page/login-page.component';
@@ -21,6 +22,7 @@ import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
     AppComponent,
     PatientRegComponent,
     SidenavBarComponent,
+    PatientAddmissionComponent,
     // ViewRecordsComponent,
     // HomePageComponent,
     // LoginPageComponent
