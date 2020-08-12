@@ -1,0 +1,86 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(https://monodomo.com/free-wallpapers/ayurveda-wallpapers-images-For-Free-Wallpaper.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+h2{
+    text-align: center;
+    color: #5eff00;
+    margin-bottom: 40px;
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+
+.search-for{
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 40px;
+    
+    
+}
+.category{
+    width: 20px;
+    height: 20px;
+    margin-left: 50px;
+    margin-bottom: 40px;
+  
+}
+
+.search-button{
+    height: 35px;
+    width: 150px;
+    background: rgba(3, 161, 3, 0.822);
+    border-radius: 25px;
+    border: none;
+    color: #ffffff;   
+    font-family: sans-serif;
+    font-size: 15px;
+  
+}
+.search-button:hover{
+    background: rgb(2, 43, 2);
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    
+
+}
+
+.form-box{
+    background: rgba(1, 255, 191, 0.192);
+    padding: 30px 50px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 40px;
+    font-size: 20px;
+    
+}
+.search-by{
+    border-radius: 25px;
+    border: none;
+    font-family: sans-serif;
+    font-size: medium;
+    text-align: center;
+    height: 25px;
+    margin-top: 10px;
+    width: 400px;
+}
+.name{
+    font-family: sans-serif;
+    font-size: medium;
+    
+}

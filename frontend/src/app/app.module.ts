@@ -11,6 +11,7 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PatientRegComponent } from './patient-reg/patient-reg.component';
 import { MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule } from '@angular/material';
+import { SearchPageComponent } from './search-page/search-page.component';
 // import { ViewRecordsComponent } from './view-records/view-records.component';
 // import { HomePageComponent } from './home-page/home-page.component';
 // import { LoginPageComponent } from './login-page/login-page.component';
@@ -19,6 +20,7 @@ import { MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule } f
   declarations: [
     AppComponent,
     PatientRegComponent,
+    SearchPageComponent,
     // ViewRecordsComponent,
     // HomePageComponent,
     // LoginPageComponent
