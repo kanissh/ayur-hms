@@ -2,22 +2,27 @@
 
 namespace App\Repositories;
 
-use App\Models\Hospital;
+use App\Models\Patients;
 use App\Repositories\BaseRepository;
 
 /**
- * Class HospitalRepository
+ * Class PatientsRepository
  * @package App\Repositories
- * @version August 9, 2020, 6:41 am UTC
+ * @version August 8, 2020, 7:00 am UTC
 */
 
-class HospitalRepository extends BaseRepository
+class PatientsRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'name'
+        'name',
+        'gender',
+        'nic',
+        'address',
+        'religion',
+        'user_id'
     ];
 
     /**
@@ -35,6 +40,6 @@ class HospitalRepository extends BaseRepository
      **/
     public function model()
     {
-        return Hospital::class;
+        return Patients::class;
     }
 }
