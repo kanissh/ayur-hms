@@ -215,7 +215,19 @@ class PatientsAPIController extends AppBaseController
      */
     public function update($id, UpdatePatientsAPIRequest $request)
     {
+        /** @var Patients $patients */
+        $patients = $this->patientsRepository->find($id);
 
+        if (empty($patients)) {
+            return $this->sendError('Patients not found');
+        }
+
+        $patients->delete();
+
+        return $this->sendSuccess('Patients deleted successfully');
+
+
+        $input = $request->all();
     }
 
     /**
@@ -258,7 +270,16 @@ class PatientsAPIController extends AppBaseController
      */
     public function destroy($id)
     {
+         /** @var Patients $patients */
+         $patients = $this->patientsRepository->find($id);
 
+         if (empty($patients)) {
+             return $this->sendError('Patients not found');
+         }
+ 
+         $patients = $this->patientsRepository->update($input, $id);
+ 
+         return $this->sendResponse($patients->toArray(), 'Patients updated successfully')
     }
 
 
