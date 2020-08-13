@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 // import { LoginPageComponent } from './login-page/login-page.component';
 import { PatientRegComponent } from './patient-reg/patient-reg.component';
+import { PatientAddmissionComponent } from './patient-addmission/patient-addmission.component';
 
 
 const routes: Routes = [
   { path: '', component: PatientRegComponent },
-  // { path: 'login', component: LoginPageComponent }
-
+  //{ path: '', component: SearchPageComponent }
 ];
 
 @NgModule({

@@ -1,93 +1,98 @@
 <app-sidenav-bar page-title="{{ page.name }}">
 
-  <div class="form">
+  <form [formGroup]="patientRegistrationForm" class="form" (ngSubmit)="onSubmit()">
 
-    <span class="input-element">
+    <div class="input-element">
       <label for="hospitals-cd">Hospital/CD Location</label>
       <mat-form-field appearance="outline">
         <mat-label>Hospital or CD</mat-label>
         <mat-select>
-          <mat-option *ngFor="let hosCd of hospitalsCd" [value]="hospitalsCd">
+          <mat-option *ngFor="let hosCd of hospitalsCdList" [value]="hospitalsCdList">
             {{ hosCd }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </span>
+    </div>
 
-    <span class="input-element">
+    <div class="input-element">
       <label for="patient-name">Patient's Name</label>
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
-        <input matInput>
+        <input matInput type="text" id="patient-name" formControlName="patientName">
       </mat-form-field>
-    </span>
+      <span class="error" *ngIf="!patientRegistrationForm.get('patientName').valid && patientRegistrationForm.get('patientName').touched"><mat-icon>error</mat-icon></span>
+    </div>
 
-    <span class="input-element">
+
+    <div class="input-element">
       <label for="nic">National ID card No.</label>
       <mat-form-field appearance="outline">
         <mat-label>National ID card No.</mat-label>
-        <input matInput>
+        <input matInput type="text" id="nic" formControlName="nic">
       </mat-form-field>
-    </span>
+      <span class="error" *ngIf="!patientRegistrationForm.get('nic').valid && patientRegistrationForm.get('nic').touched"><mat-icon>error</mat-icon></span>
+    </div>
 
-    <span class="input-element">
+    <div class="input-element">
       <label for="age">Age</label>
       <mat-form-field appearance="outline">
         <mat-label>Age</mat-label>
-        <input matInput>
+        <input matInput type="number" id="age" formControlName="age">
       </mat-form-field>
-    </span>
+      <span class="error" *ngIf="!patientRegistrationForm.get('age').valid && patientRegistrationForm.get('age').touched"><mat-icon>error</mat-icon></span>
+    </div>
 
-    <span id="gender-ele-id" class="input-element">
+    <div id="gender-ele-id" class="input-element">
       <label for="gender">Gender</label>
-      <mat-radio-group color="primary">
+      <mat-radio-group color="primary" id="gender" formControlName="gender">
         <mat-radio-button value="male">Male</mat-radio-button>
         <mat-radio-button value="female">Female</mat-radio-button>
         <mat-radio-button value="other">Other</mat-radio-button>
+        <mat-radio-button value="not-specified">Not Specified</mat-radio-button>
       </mat-radio-group>
-    </span>
+    </div>
 
-    <span class="input-element">
+    <div class="input-element">
       <label for="address">Address</label>
       <mat-form-field appearance="outline">
         <mat-label>Address</mat-label>
-        <input matInput>
+        <input matInput type="text" id="address" formControlName="address">
       </mat-form-field>
-    </span>
+    </div>
 
-    <span class="input-element">
+    <div class="input-element">
       <label for="phone-number">Contact Number</label>
       <mat-form-field appearance="outline">
         <mat-label>Phone number</mat-label>
-        <input matInput>
+        <input matInput type="text" id="phone-number" formControlName="phoneNumber">
         <mat-icon matSuffix>phone</mat-icon>
       </mat-form-field>
+      <span class="error" *ngIf="!patientRegistrationForm.get('phoneNumber').valid && patientRegistrationForm.get('phoneNumber').touched"><mat-icon>error</mat-icon></span>
+    </div>
 
-    </span>
-
-    <span class="input-element">
+    <div class="input-element">
       <label for="occupation">Occupation</label>
       <mat-form-field appearance="outline">
         <mat-label>Occupation</mat-label>
-        <input matInput>
+        <input matInput type="text" id="occupation" formControlName="occupation">
       </mat-form-field>
-    </span>
+    </div>
 
-    <span class="input-element">
+    <div class="input-element">
       <label for="other-notes">Other notes</label>
       <mat-form-field id="other-notes" appearance="outline">
         <mat-label>Other Notes</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput type="text" id="other-notes" formControlName="otherNotes"></textarea>
       </mat-form-field>
-    </span>
+    </div>
 
-    <span class="bottom-btn">
-      <button id="save-details-btn" mat-raised-button color="primary">Save Details</button>
-      <button id="cancel-btn" mat-raised-button color="warn">Cancel</button>
-      <button id="admit-to-ward-btn" mat-raised-button color="primary">Admit to Ward</button>
-    </span>
+    <div class="bottom-btn">
+      <button id="save-details-btn" mat-raised-button color="primary" type="submit">Save Details</button>
+      <button id="cancel-btn" mat-raised-button color="warn" type="button" (click)="resetForm()">Cancel</button>
+      <button id="admit-to-ward-btn" mat-raised-button color="primary" type="button">Admit to Ward</button>
+    </div>
 
 
-  </div>
-
+  </form>
+ 
 </app-sidenav-bar>
