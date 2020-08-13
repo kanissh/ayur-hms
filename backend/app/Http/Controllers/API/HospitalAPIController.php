@@ -59,7 +59,13 @@ class HospitalAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $hospitals = $this->hospitalRepository->all(
+            $request->except(['skip', 'limit']),
+            $request->get('skip'),
+            $request->get('limit')
+        );
 
+        return $this->sendResponse($hospitals->toArray(), 'Hospitals retrieved successfully');
     }
 
     /**
@@ -102,7 +108,11 @@ class HospitalAPIController extends AppBaseController
      */
     public function store(CreateHospitalAPIRequest $request)
     {
+        $input = $request->all();
 
+        $hospital = $this->hospitalRepository->create($input);
+
+        return $this->sendResponse($hospital->toArray(), 'Hospital saved successfully');
     }
 
     /**
@@ -145,7 +155,14 @@ class HospitalAPIController extends AppBaseController
      */
     public function show($id)
     {
+        /** @var Hospital $hospital */
+        $hospital = $this->hospitalRepository->find($id);
 
+        if (empty($hospital)) {
+            return $this->sendError('Hospital not found');
+        }
+
+        return $this->sendResponse($hospital->toArray(), 'Hospital retrieved successfully');
     }
 
     /**
