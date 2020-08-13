@@ -10,21 +10,19 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { PatientRegComponent } from './patient-reg/patient-reg.component';
-import { SearchPageComponent } from './search-page/search-page.component';
+//import { SearchPageComponent } from './search-page/search-page.component';
 import { MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule, MatSidenavModule } from '@angular/material';
 import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
-import { PatientAddmissionComponent } from './patient-addmission/patient-addmission.component';
-// import { ViewRecordsComponent } from './view-records/view-records.component';
-// import { HomePageComponent } from './home-page/home-page.component';
-// import { LoginPageComponent } from './login-page/login-page.component';
+//import { PatientAddmissionComponent } from './patient-addmission/patient-addmission.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientRegComponent,
-    SearchPageComponent,
+    //SearchPageComponent,
     SidenavBarComponent,
-    PatientAddmissionComponent,
+    //PatientAddmissionComponent,
 
     // ViewRecordsComponent,
     // HomePageComponent,
