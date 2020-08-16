@@ -37,13 +37,13 @@ import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
+   // ReactiveFormsModule,
+    //MatFormFieldModule,
     MatIconModule,
-    MatInputModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatSidenavModule
+    //MatInputModule,
+    //MatSelectModule,
+    //MatRadioModule,
+    //MatSidenavModule
     
   ],
   providers: [],
