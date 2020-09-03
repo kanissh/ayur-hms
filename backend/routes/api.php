@@ -32,3 +32,6 @@ Route::resource('v1/patients', 'PatientsAPIController');
 
 
 Route::resource('v1/hospitals', 'HospitalAPIController');
+
+
+Route::resource('v1/statuses', 'StatusAPIController');
