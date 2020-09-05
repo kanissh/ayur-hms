@@ -7,6 +7,7 @@ import { PatientAddmissionComponent } from './patient-addmission/patient-addmiss
 
 const routes: Routes = [
   { path: '', component: PatientRegComponent },
+  { path: 'pat-adm', component: PatientAddmissionComponent },
   //{ path: '', component: SearchPageComponent }
 ];
 

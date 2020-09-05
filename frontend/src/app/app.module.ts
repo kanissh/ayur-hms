@@ -8,12 +8,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule} from '@angular/material/toolbar';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PatientRegComponent } from './patient-reg/patient-reg.component';
 //import { SearchPageComponent } from './search-page/search-page.component';
 import { MatFormFieldModule, MatInputModule, MatSelectModule, MatRadioModule, MatSidenavModule } from '@angular/material';
 import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
-//import { PatientAddmissionComponent } from './patient-addmission/patient-addmission.component';
+import { PatientAddmissionComponent } from './patient-addmission/patient-addmission.component';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
     PatientRegComponent,
     //SearchPageComponent,
     SidenavBarComponent,
-    //PatientAddmissionComponent,
+
+    PatientAddmissionComponent,
 
     // ViewRecordsComponent,
     // HomePageComponent,
@@ -41,7 +42,9 @@ import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ReactiveFormsModule,
+    FormsModule
     
   ],
   providers: [],
