@@ -221,10 +221,10 @@ class PatientsAPIController extends AppBaseController
         if (empty($patients)) {
             return $this->sendError('Patients not found');
         }
-
-        $patients->delete();
-
-        return $this->sendSuccess('Patients deleted successfully');
+        
+        $patients = $this->patientsRepository->update($input, $id);
+ 
+        return $this->sendResponse($patients->toArray(), 'Patients updated successfully');
 
 
         $input = $request->all();
@@ -276,10 +276,14 @@ class PatientsAPIController extends AppBaseController
          if (empty($patients)) {
              return $this->sendError('Patients not found');
          }
+        
+        
+        $patients->delete();
+
+        return $this->sendSuccess('Patients deleted successfully');
+
  
-         $patients = $this->patientsRepository->update($input, $id);
- 
-         return $this->sendResponse($patients->toArray(), 'Patients updated successfully')
+         
     }
 
 
