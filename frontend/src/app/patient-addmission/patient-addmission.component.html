@@ -1,5 +1,4 @@
-<p>patient-addmission works!</p>
-<mat-toolbar>
+<!-- <mat-toolbar>
   <button id="menu-btn" mat-icon-button>
     <mat-icon>menu</mat-icon>
   </button>
@@ -15,163 +14,206 @@
       <mat-icon>person</mat-icon>
     </button>
   </span>
-</mat-toolbar>
+</mat-toolbar> -->
 
-<div class=>
-  <mat-label>Hospital</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>Select</mat-label>
-    <mat-select>
-      <mat-option value="option1">Option1</mat-option>
-      <mat-option value="option2">Option2</mat-option>
-      <mat-option value="option3">Option3</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
 
-<div>
-  <mat-label>Parent's or guardian's name</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>fill here</mat-label>
-    <input matInput>
-  </mat-form-field>
-</div>
 
-<span>
-  <div>
-    <label for="">Address</label>
-    <mat-form-field>
-      <mat-label>fill here</mat-label>
-      <input matInput>
-    </mat-form-field>
-  </div>
-</span>
 
-<span>
-  <div>
-    <label>Phone number</label>
-    <mat-form-field>
-      <mat-label>Area Code</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Phone Number</mat-label>
-      <input matInput>
-    </mat-form-field>
-  </div>
-</span>
+<div class="container">
+  <form class="padd">
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Hospital</label>
+      <div class="col-sm-10">
+        <mat-form-field appearance="fill" class=" w-100">
+          <mat-label>Select</mat-label>
+          <mat-select>
+            <mat-option value="option1">Option1</mat-option>
+            <mat-option value="option2">Option2</mat-option>
+            <mat-option value="option3">Option3</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
 
-<div>
-  <mat-label>patient's name</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>fill here</mat-label>
-    <input matInput>
-  </mat-form-field>
-</div>
 
-<div>
-  <mat-label>NIC</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>fill here</mat-label>
-    <input matInput>
-  </mat-form-field>
-</div>
+  </form>
 
-<div>
-  <span>
-    <div>
-      <mat-label>Age</mat-label>
-      <mat-form-field appearance="fill">
+
+
+  <form class="padd">
+    <div class="form-group row">
+      <mat-label class="col-sm-2">Parent's or guardian's name</mat-label>
+      <mat-form-field appearance="fill" class="col-sm-10">
         <mat-label>fill here</mat-label>
         <input matInput>
       </mat-form-field>
     </div>
-  </span>
+  </form>
 
-  <span>
-    <div>
-      <mat-label>Birth Place</mat-label>
-      <mat-form-field appearance="fill">
+  <form class="padd">
+    <span>
+      <div class="form-group row">
+        <mat-label class="col-sm-2">Address</mat-label>
+        <mat-form-field appearance="fill" class="col-sm-10">
+          <mat-label>fill here</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </span>
+  </form>
+
+  <form class="padd">
+    <span>
+      <div class="form-group row">
+        <mat-label class="col-sm-2">Phone number</mat-label>
+        <mat-form-field appearance="fill" class="col-sm-10">
+          <mat-label>Phone Number</mat-label>
+          <input matInput>
+          <span matPrefix>+94&nbsp;</span>
+        </mat-form-field>
+      </div>
+    </span>
+  </form>
+
+  <form class="padd">
+    <div class="form-group row">
+      <mat-label class="col-sm-2">patient's name</mat-label>
+      <mat-form-field appearance="fill" class="col-sm-10">
         <mat-label>fill here</mat-label>
         <input matInput>
       </mat-form-field>
     </div>
-  </span>
-</div>
+  </form>
 
-<div>
-  <label>Gender</label>
-  <mat-radio-group color="primary">
-    <mat-radio-button value="male">Male</mat-radio-button>
-    <mat-radio-button value="female">Female</mat-radio-button>
-    <mat-radio-button value="other">Other</mat-radio-button>
-  </mat-radio-group>
-</div>
+  <form class="padd">
+    <div class="form-group row">
+      <mat-label class="col-sm-2">NIC</mat-label>
+      <mat-form-field appearance="fill" class="col-sm-10">
+        <mat-label>fill here</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </form>
 
-<div>
-  <mat-label>Nationality</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>fill here</mat-label>
-    <input matInput>
-  </mat-form-field>
-</div>
 
-<div>
-  <mat-label>religion</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>fill here</mat-label>
-    <input matInput>
-  </mat-form-field>
-</div>
-
-<span>
-  <mat-label>Address</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>fill here</mat-label>
-    <input matInput>
-  </mat-form-field>
-</span>
-
-<span>
   <div>
-    <label>Phone number</label>
-    <mat-form-field>
-      <mat-label>Area Code</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Phone Number</mat-label>
-      <input matInput>
-    </mat-form-field>
+    <form class="padd">
+      <span>
+        <div class="form-group row">
+          <mat-label class="col-sm-2">Age</mat-label>
+          <mat-form-field appearance="fill" class="col-sm-10">
+            <mat-label>fill here</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+      </span>
+    </form>
+
+    <form class="padd">
+      <span>
+        <div class="form-group row">
+          <mat-label class="col-sm-2">Birth Place</mat-label>
+          <mat-form-field appearance="fill" class="col-sm-10">
+            <mat-label>fill here</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+      </span>
+    </form>
   </div>
-</span>
 
-<span>
-  <mat-label>Occupation</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>fill here</mat-label>
-    <input matInput>
-  </mat-form-field>
-</span>
+  <form class="padd">
+    <div class="form-group row">
+      <mat-label class="col-sm-2">Gender</mat-label>
+      <mat-radio-group color="primary" class="form-group row">
+        <div class="col-sm-10">
+          <div><mat-radio-button value="male" class="col-sm-3">Male</mat-radio-button></div>
+          <div><mat-radio-button value="female" class="col-sm-3">Female</mat-radio-button></div>
+          <div><mat-radio-button value="other" class="col-sm-3">Other</mat-radio-button></div>
+        </div>
+      </mat-radio-group>
+    </div>
+  </form>
 
-<span>
-  <mat-label>Ward No.</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>fill here</mat-label>
-    <input matInput>
-  </mat-form-field>
-</span>
+  <form class="padd">
+    <div class="form-group row">
+      <mat-label class="col-sm-2">Nationality</mat-label>
+      <mat-form-field appearance="fill" class="col-sm-10">
+        <mat-label>fill here</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </form>
 
-<span>
-  <mat-label>OPD Doctor's name</mat-label>
-  <mat-form-field appearance="fill">
-    <mat-label>fill here</mat-label>
-    <input matInput>
-  </mat-form-field>
-</span>
+  <form class="padd">
+    <div class="form-group row">
+      <mat-label class="col-sm-2">religion</mat-label>
+      <mat-form-field appearance="fill" class="col-sm-10">
+        <mat-label>fill here</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </form>
 
-<span>
-  <button id="admit" mat-raised-button color="primary">admit</button>
-  <button id="cancel" mat-raised-button color="warning">Cancel</button>
-  <button id="print" mat-raised-button color="basic">Print</button>
-</span>
+  <form class="padd">
+    <div class="form-group row">
+      <mat-label class="col-sm-2">Address</mat-label>
+      <mat-form-field appearance="fill" class="col-sm-10">
+        <mat-label>fill here</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <form class="padd">
+    <span>
+      <div class="form-group row">
+        <label class="col-sm-2">Phone number</label>
+        <mat-form-field appearance="fill" class="col-sm-10">
+          <mat-label >Phone Number</mat-label>
+          <input matInput>
+          <span matPrefix>+94&nbsp;</span>
+        </mat-form-field>
+      </div>
+    </span>
+  </form>
+
+  <form class="padd">
+    <div class="form-group row">
+      <mat-label class="col-sm-2">Occupation</mat-label>
+      <mat-form-field appearance="fill" class="col-sm-10">
+        <mat-label>fill here</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <form class="padd">
+    <div class="form-group row">
+      <mat-label class="col-sm-2">Ward No.</mat-label>
+      <mat-form-field appearance="fill" class="col-sm-10">
+        <mat-label>fill here</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <form class="padd">
+    <div class="form-group row">
+      <mat-label class="col-sm-2"> OPD Doctor's name</mat-label>
+      <mat-form-field appearance="fill" class="col-sm-10">
+        <mat-label>fill here</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </form>
+
+  <form class="padd">
+    <div class="form-group row">
+      <button id="admit" mat-raised-button color="primary">admit</button>
+      <button id="cancel" mat-raised-button color="warn">Cancel</button>
+      <button id="print" mat-raised-button color="basic">Print</button>
+    </div>
+  </form>
+
+</div>

@@ -8,7 +8,9 @@ import { SearchPageComponent } from './search-page/search-page.component';
 
 const routes: Routes = [
   { path: '', component: PatientRegComponent },
-  // { path: '', component: SearchPageComponent }
+  { path: 'pat-adm', component: PatientAddmissionComponent },
+  //{ path: '', component: SearchPageComponent }
+
 ];
 
 @NgModule({

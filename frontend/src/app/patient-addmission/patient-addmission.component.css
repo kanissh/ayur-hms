@@ -1,0 +1,10 @@
+.padd{
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+@media screen and (max-width: 768px){
+    .padd{
+        padding-left: 0rem;
+        padding-right: 0rem;
+    }
+}
