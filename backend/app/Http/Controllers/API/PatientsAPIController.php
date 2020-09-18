@@ -216,6 +216,8 @@ class PatientsAPIController extends AppBaseController
     public function update($id, UpdatePatientsAPIRequest $request)
     {
         /** @var Patients $patients */
+        $input = $request->all();
+        
         $patients = $this->patientsRepository->find($id);
 
         if (empty($patients)) {
@@ -227,7 +229,7 @@ class PatientsAPIController extends AppBaseController
         return $this->sendResponse($patients->toArray(), 'Patients updated successfully');
 
 
-        $input = $request->all();
+        
     }
 
     /**
