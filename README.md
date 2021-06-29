@@ -1,5 +1,7 @@
 # Hospital management system for Ayurvedic hospital
 
+This repository is archived
+
 | !!!Temporary App home changed to point to certain pages!!! |
 | ------ |
 | App routing only added to Patient Registration page |
